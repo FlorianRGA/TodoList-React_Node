@@ -1,13 +1,13 @@
-const Task = require("../models/task");
+const Todo = require("../models/task");
 
 // Créer une nouvelle tâche
-const createTask = async (req, res) => {
+const createTodo = async (req, res) => {
 	const { title, description } = req.body;
-	const newTask = new Task({ title, description });
+	const newTodo = new Todo({ title, description });
 
 	try {
-		await newTask.save();
-		res.status(201).json(newTask);
+		await newTodo.save();
+		res.status(201).json(newTodo);
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}

@@ -1,12 +1,12 @@
 // routes/taskRoutes.js
 const express = require("express");
 const router = express.Router();
-const taskController = require("../controllers/taskController");
+const todoController = require("../controllers/todoController");
 
 // Définition des routes
-router.post("/", taskController.createTask); // Créer une tâche
-router.get("/", taskController.getTasks); // Lire toutes les tâches
-router.put("/:id", taskController.updateTask); // Mettre à jour une tâche
-router.delete("/:id", taskController.deleteTask); // Supprimer une tâche
+router.post("/", todoController.createTodo); // Créer une tâche
+router.get("/", todoController.getTodos); // Lire toutes les tâches
+router.put("/:id", todoController.updateTodo); // Mettre à jour une tâche
+router.delete("/:id", todoController.deleteTodo); // Supprimer une tâche
 
 module.exports = router;
