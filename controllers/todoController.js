@@ -14,43 +14,43 @@ const createTodo = async (req, res) => {
 };
 
 // Lire toutes les tâches
-const getTasks = async (req, res) => {
+const getTodos = async (req, res) => {
 	try {
-		const tasks = await Task.find();
-		res.status(200).json(tasks);
+		const todos = await Task.find();
+		res.status(200).json(todos);
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
 };
 
 // Mettre à jour une tâche
-const updateTask = async (req, res) => {
+const updateTodo = async (req, res) => {
 	const { title, description } = req.body;
 	try {
-		const task = await Task.findByIdAndUpdate(
+		const todo = await Todo.findByIdAndUpdate(
 			req.params.id,
 			{ title, description },
 			{ new: true }
 		);
-		res.status(200).json(task);
+		res.status(200).json(todo);
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
 };
 
 // Supprimer une tâche
-const deleteTask = async (req, res) => {
+const deleteTodo = async (req, res) => {
 	try {
-		await Task.findByIdAndDelete(req.params.id);
-		res.status(200).json({ message: "Task deleted" });
+		await Todo.findByIdAndDelete(req.params.id);
+		res.status(200).json({ message: "Todo deleted" });
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
 };
 
 module.exports = {
-	createTask,
-	getTasks,
-	updateTask,
-	deleteTask,
+	createTodo,
+	getTodos,
+	updateTodo,
+	deleteTodo,
 };
