@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const taskRoutes = require("./routes/taskRoutes");
+const todoRoutes = require("./routes/todoRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -14,15 +14,12 @@ app.use(cors());
 
 // Connexion à la base de données
 mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+	.connect(process.env.MONGO_URI, {})
 	.then(() => console.log("Connected to MongoDB"))
-	.catch((err) => console.log(err));
+	.catch((err) => console.log("non connecté"));
 
 // Utilisation des routes
-app.use("/tasks", taskRoutes);
+app.use("/todo", todoRoutes);
 
 // Démarrer le serveur
 app.listen(PORT, () => {

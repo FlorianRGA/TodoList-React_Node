@@ -1,4 +1,4 @@
-const Todo = require("../models/task");
+const Todo = require("../models/todo");
 
 // Créer une nouvelle tâche
 const createTodo = async (req, res) => {
@@ -9,17 +9,18 @@ const createTodo = async (req, res) => {
 		await newTodo.save();
 		res.status(201).json(newTodo);
 	} catch (err) {
-		res.status(400).json({ message: err.message });
+		res.status(400).json({ message: "POST NON VALIDE" });
 	}
 };
 
 // Lire toutes les tâches
 const getTodos = async (req, res) => {
+	console.error("GetTodos func");
 	try {
-		const todos = await Task.find();
+		const todos = await Todo.find();
 		res.status(200).json(todos);
 	} catch (err) {
-		res.status(500).json({ message: err.message });
+		res.status(500).json({ message: "Get not working" });
 	}
 };
 
