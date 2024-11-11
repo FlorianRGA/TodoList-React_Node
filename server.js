@@ -19,7 +19,7 @@ mongoose
 	.catch((err) => console.log("non connecté"));
 
 // Utilisation des routes
-app.use("/todo", todoRoutes);
+app.use("/", todoRoutes);
 
 // Démarrer le serveur
 app.listen(PORT, () => {

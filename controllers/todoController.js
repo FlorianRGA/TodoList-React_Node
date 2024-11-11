@@ -15,7 +15,6 @@ const createTodo = async (req, res) => {
 
 // Lire toutes les tâches
 const getTodos = async (req, res) => {
-	console.error("GetTodos func");
 	try {
 		const todos = await Todo.find();
 		res.status(200).json(todos);
@@ -49,9 +48,19 @@ const deleteTodo = async (req, res) => {
 	}
 };
 
+// Récupérer une tâche
+const getATodo = async (req, res) => {
+	try {
+		const todo = await Todo.findById(req.params.id);
+		res.status(200).json(todo);
+	} catch (err) {
+		res.status(400).json({ message: err.message });
+	}
+};
 module.exports = {
 	createTodo,
 	getTodos,
 	updateTodo,
 	deleteTodo,
+	getATodo,
 };
