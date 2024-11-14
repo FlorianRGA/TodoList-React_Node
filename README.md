@@ -15,9 +15,13 @@
 #### Note to myself : React Router DOM handles navigation between pages.
 
 ### What could i change/add :
+
 -**Form Check** (Add validation/check form)
+
 -**Component** (success,error notification)
+
 -**Make it prettier** (Responsive design/Use more of MUI/Create a theme for MUI)
+
 -**Customize** (success,error request API)
 
 
