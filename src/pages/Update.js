@@ -1,33 +1,47 @@
-import { TextField, Input, Box, Typography, Card, Button } from "@mui/material";
-import "../App.css";
-import { useState } from "react";
-import { createTodo } from "../api/createTodo";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography, TextField, Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import { updateTodo } from "../api/updateTodo";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export const Create = () => {
-	const navigate = useNavigate();
+const Edit = () => {
+	const location = useLocation();
+	const data = location.state ? location.state.data : null;
+	const id = data._id;
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (data) {
+			setTitle(data.title);
+			setDescription(data.description);
+		} else {
+			navigate("/");
+		}
+	}, [data, navigate]);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = {
+		const updatedData = {
 			title: title,
 			description: description,
 		};
 		try {
-			await createTodo(data);
+			await updateTodo(id, updatedData);
 			navigate("/");
 		} catch (error) {
 			console.log(error);
 		}
 	};
+	if (!data) {
+		return <div>Chargement des données...</div>;
+	}
 	return (
 		<main>
 			<Typography
 				variant="h3"
 				sx={{ fontSize: "1.5rem", textAlign: "center", mt: "2rem" }}
 			>
-				Create a todo
+				Edit a todo
 			</Typography>
 			<Box
 				onSubmit={handleSubmit}
@@ -57,10 +71,10 @@ export const Create = () => {
 					onChange={(e) => setDescription(e.target.value)}
 				/>
 				<Button variant="outlined" type="submit">
-					Envoyer
+					Modifier
 				</Button>
 			</Box>
 		</main>
 	);
 };
-export default Create;
+export default Edit;

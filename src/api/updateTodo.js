@@ -1,8 +1,11 @@
 import axios from "axios";
 
-export const getTodo = async () => {
+export const updateTodo = async (id, data) => {
 	try {
-		const response = await axios.get("http://localhost:3000/");
+		const response = await axios.put(
+			`http://localhost:5000/update/${id}`,
+			data
+		);
 		return response.data;
 	} catch (error) {
 		console.error("Erreur de demande..");

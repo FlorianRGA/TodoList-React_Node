@@ -8,22 +8,18 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {
 	List,
 	ListItem,
-	Divider,
 	Grid2,
 	Box,
 	ListItemText,
 	ListItemButton,
-	ListSubheader,
-	Typography,
-	AppBar,
-	ListItemIcon,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteTodo } from "../api/deleteTodo";
 
 const Home = () => {
 	const [todos, setTodos] = useState([]);
 	const [error, setError] = useState(null);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchTodo = async () => {
@@ -47,6 +43,10 @@ const Home = () => {
 			return console.log(error);
 		}
 	};
+	const handleRedirect = (todo) => {
+		navigate("/update", { state: { data: todo } });
+	};
+
 	return (
 		<div className="App">
 			<main>
@@ -72,7 +72,16 @@ const Home = () => {
 									<ListItemText sx={{ width: "50%", fontSize: "0.75rem" }}>
 										{todo.description}
 									</ListItemText>
-									<ListItemButton sx={{ width: "10%" }}>
+									<ListItemButton
+										onClick={() =>
+											handleRedirect({
+												_id: todo._id,
+												title: todo.title,
+												description: todo.description,
+											})
+										}
+										sx={{ width: "10%" }}
+									>
 										<EditIcon sx={{ color: "blue" }} />
 									</ListItemButton>
 									<ListItemButton
