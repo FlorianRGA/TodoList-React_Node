@@ -12,9 +12,9 @@
 
 -**React DOM** Router (React Router DOM for routing and page navigation)
 
-##### Note to myself : React Router DOM handles navigation between pages.
+#### Note to myself : React Router DOM handles navigation between pages.
 
-#### What could i change/add :
+### What could i change/add :
 -**Form Check** (Add validation/check form)
 -**Component** (success,error notification)
 -**Make it prettier** (Responsive design/Use more of MUI/Create a theme for MUI)
@@ -30,7 +30,7 @@
 -**MongoCompass** (Interactive tool for DB) *Need to try CLI
 -**Mongoose** (database queries)
                  
-## What could i change/add : 
+### What could i change/add : 
 -**Data validation**
 -**Custom error/success message**
                  
