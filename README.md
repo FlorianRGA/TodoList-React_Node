@@ -1,8 +1,8 @@
-###### Simple React.js & Node.js CRUD App with Express and MongoDB
+# Simple React.js & Node.js CRUD App with Express and MongoDB
 
 
 
-#### Improving REACT.JS NOTE 
+## Improving REACT.JS NOTE 
 
 ### What did i use : 
 
@@ -12,9 +12,9 @@
 
 -**React DOM** Router (React Router DOM for routing and page navigation)
 
-## Note to myself : React Router DOM handles navigation between pages.
+##### Note to myself : React Router DOM handles navigation between pages.
 
-## What could i change/add :
+#### What could i change/add :
 -**Form Check** (Add validation/check form)
 -**Component** (success,error notification)
 -**Make it prettier** (Responsive design/Use more of MUI/Create a theme for MUI)
@@ -22,7 +22,7 @@
 
 
 
-#### Improving Node.JS NOTE
+## Improving Node.JS NOTE
 
 ### What did i use : 
 -**Express JS** (Used Express to build the API server and handle routes)
