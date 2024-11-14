@@ -24,13 +24,18 @@
 
 ## Improving Node.JS NOTE
 
-### What did i use : 
+### What did i use :
+
 -**Express JS** (Used Express to build the API server and handle routes)
+
 -**Mongo** (Used MongoDB for data storage)
+
 -**MongoCompass** (Interactive tool for DB) *Need to try CLI
+
 -**Mongoose** (database queries)
                  
-### What could i change/add : 
+### What could i change/add :
+
 -**Data validation**
 -**Custom error/success message**
                  
